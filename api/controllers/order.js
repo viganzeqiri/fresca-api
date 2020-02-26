@@ -281,7 +281,7 @@ exports.drop_an_order = async (req, res, next) => {
 };
 
 exports.archive_order = (req, res, next) => {
-  const id = req.params.orderId;
+  const id = req.params.orderId
 
   Order.update(
     {
@@ -304,8 +304,8 @@ exports.archive_order = (req, res, next) => {
 
 exports.inmaking = (req, res, next) => {
   const id = req.params.orderId;
-    
-    Order.findOneAndUpdate({_id: id}, {$set:{inMaking: true}}, {new: false}, (err, doc) => {
+
+    Order.findOneAndUpdate({_id: id}, {$set:{ inMaking: true }}, {new: false}, (err, doc) => {
       if (err) {
         err.status(500).json(err)
       }
@@ -377,7 +377,6 @@ function getDate(prefix) {
       jsDate.getFullYear() + "-" + (jsDate.getMonth() + 1) + "-" + 1
     )
   }
-  console.log(opts)
   return opts;
 }
 
